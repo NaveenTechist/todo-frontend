@@ -1,0 +1,51 @@
+.display-data {
+    background-color: white;
+    /* box-shadow: 0px 4px 5px 0px #515151; */
+    margin-bottom: 15px;
+    border-radius: 4px;
+    color: black;
+    text-align: left;
+    padding: 10px;
+    display: flex;
+    border: 1px solid silver;
+}
+
+.all-arrived-data {
+    width: 95%;
+    margin-top: 20px;
+}
+
+.display-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-title {
+    color: rgb(94, 94, 237);
+    font-size: 18px;
+}
+
+.description {
+    color: grey;
+    font-size: 15px;
+}
+
+.status {
+    color: silver;
+}
+
+.input-container {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.display-checkbox {
+    width: 15px;
+    height: 15px;
+}
+.delete-icon {
+    color: red;
+    /* font-size: 150px; */
+}
