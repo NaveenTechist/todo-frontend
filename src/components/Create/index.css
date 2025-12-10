@@ -24,6 +24,7 @@
     border-radius: 4px;
     padding: 10px;
     width: 100%;
+    height: 45px;
     outline: none;
     margin-bottom: 20px;
     border-width: 0px;
@@ -42,12 +43,13 @@
 .create-submit-btn {
     background-color: bisque;
     color: black;
-    height: 40px;
+    height: 45px;
     font-size: 15px;
     margin-top: 40px;
     border-width: 0px;
     width: 100%;
     border-radius: 4px;
+    font-weight: 700;
 }
 
 .inputs-containers {

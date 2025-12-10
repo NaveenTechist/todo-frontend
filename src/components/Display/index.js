@@ -3,16 +3,49 @@ import './index.css'
 // import { MdDelete } from "react-icons/md";
 // import { RiDeleteBin7Fill } from "react-icons/ri";
 import { FaTrash } from "react-icons/fa";
+import { useState, useEffect } from 'react';
+
 
 
 function Display(props) {
+
+    const [data, setData] = useState([])
+
+    const statusFunction = async (e) => {
+        const id = e.target.id
+        const updatedArray = data.find(each => each.id == Number(id))
+        console.log(updatedArray)
+
+        const updatedItem = {
+            ...updatedArray,
+            status: updatedArray.status === 'Pending' ? 'Completed' : "Pending"
+        }
+
+        console.log(updatedItem)
+        const url = `http://localhost:8080/todos/${id}`
+        const options = {
+            method: 'PUT',
+            headers: {
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJieXN2Z2t4cHp5d3Vpa3RxZ3JnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ5OTk0OTMsImV4cCI6MjA4MDU3NTQ5M30.4RNT_mndOKv9ecieks4Ebi-V3urqg_pwEI-PqbK6NaE",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedItem)
+        }
+        const response = await fetch(url, options)
+        console.log(response)
+    }
+
+    useEffect(() => {
+        setData(props.data)
+    }, [props.data])
+
     return (
         <div className='display-container'>
             <div className='all-arrived-data'>
-                {props.data.map((each) => (
+                {data.map((each) => (
                     <div key={each.id} className="display-data">
                         <div className='input-container'>
-                            <input type='checkbox' checked={each.status === 'Completed'} className='display-checkbox' id={each.id} />
+                            <input type='checkbox' onChange={(e) => statusFunction(e)} checked={each.status === 'Completed'} className='display-checkbox' id={each.id} />
                         </div>
                         <label htmlFor={each.id}>
                             <h1 className='display-title'>{each.title}</h1>
