@@ -12,7 +12,7 @@ function Display(props) {
                 {props.data.map((each) => (
                     <div key={each.id} className="display-data">
                         <div className='input-container'>
-                            <input type='checkbox' className='display-checkbox' id={each.id} />
+                            <input type='checkbox' checked={each.status === 'Completed'} className='display-checkbox' id={each.id} />
                         </div>
                         <label htmlFor={each.id}>
                             <h1 className='display-title'>{each.title}</h1>

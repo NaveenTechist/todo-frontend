@@ -68,7 +68,7 @@ class Home extends Component {
                     <div className='body-container'>
                         <div className='body'>
                             <h1 className='body-text'>Today's task</h1>
-                            <div>
+                            <div className="only-came-data">
                                 <Display data={data} />
                             </div>
                         </div>
